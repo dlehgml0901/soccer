@@ -1,10 +1,11 @@
 package com.parksrazor.web.domains;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
 public class PlayerDTO {
-    String player_id, player_name, team_id, e_player_name,
-            nickname, join_yyyy, position, back_no, nation,
-            birth_date, solar, height, weight;
+    public String playerId, playerName, ePlayerName, nickname, joinYyyy, position, backNo, nation, birthDate, solar,
+            height, weight, teamId;
 }

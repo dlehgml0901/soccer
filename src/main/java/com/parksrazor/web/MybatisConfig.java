@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages= {"com.parksrazor.web.mapper"})
+@MapperScan(basePackages= {"com.parksrazor.web.mappers"})
 @EnableTransactionManagement
 public class MybatisConfig {
     @Bean
@@ -19,7 +19,7 @@ public class MybatisConfig {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/parksrazor/web/mapper/*.xml"));
+        sessionFactory.setMapperLocations(resolver.getResources("classpath:com/parksrazor/web/mappers/*.xml"));
         return sessionFactory.getObject();
     }
 

@@ -9,19 +9,12 @@ group = 'com.parksrazor'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web-services', version: '2.2.5.RELEASE'
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'

@@ -3,5 +3,5 @@ package com.parksrazor.web.services;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StadiumService {
+public interface StadiumService {
 }
