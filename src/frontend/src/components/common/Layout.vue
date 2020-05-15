@@ -1,26 +1,33 @@
 <template>
     <div id="wrapper">
         <header>
-            <slot name="header" v-bind:title="header"></slot>
+            <slot name="header"
+                :title="data1"
+                :login="data2"
+                :join="data3"></slot>
         </header>
         <aside id="sidebar">
-
+            <slot name="sidebar"></slot>
         </aside>
         <section id="content">
+            <slot name="content">
 
+            </slot>
         </section>
         <footer>
-
+            <slot name="footer" :footer="data4"></slot>
         </footer>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Layout",
-        data: ()=>{
+        data(){
             return {
-                header: "헤더"
+                data1: '축구정보 시스템',
+                data2: '로그인',
+                data3: '회원가입',
+                data4: '(사)축구선수협회'
             }
         }
     }
@@ -86,5 +93,4 @@
     #pagewrap, header, #content, #middle, #sidebar, footer {
         border: solid 1px #ccc;
     }
-
 </style>
