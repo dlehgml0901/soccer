@@ -1,19 +1,19 @@
 <template>
     <div>
     <h2>Login Form</h2>
-    <form method="post">
         <div class="imgcontainer">
             <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
             <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input type="text" @keyup.enter="moveToPasswd" v-model="userid" placeholder="Enter Username" name="userid" required>
+            <h3>입력한 아이디: {{userid}}</h3>
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <router-link to="/calculator"><button type="submit">Login</button></router-link>
+            <input id="password" type="password" @keyup.enter="login" v-model="password" placeholder="Enter Password" name="password" required>
+            <h3>입력한 비밀번호: {{password}}</h3>
+            <button @click="login" type="submit">Login</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
@@ -23,13 +23,25 @@
             <button type="button" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
-    </form>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Login"
+        data(){
+            return{
+                userid: '',
+                password: ''
+            }
+        },
+        methods: {
+            login(){
+                alert('로그인 성공')
+            },
+            moveToPasswd(){
+                document.getElementById('password').focus()
+            }
+        }
     }
 </script>
 
