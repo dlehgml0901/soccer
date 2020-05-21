@@ -7,11 +7,11 @@
 
         <div class="container">
             <label><b>Username</b></label>
-            <input type="text" @keyup.enter="moveToPasswd" v-model="userid" placeholder="Enter Username" name="userid" required>
+            <input type="text" @keyup.enter="moveToPasswd" v-model="userid" placeholder="Enter Username" required>
             <h3>입력한 아이디: {{userid}}</h3>
 
             <label><b>Password</b></label>
-            <input id="password" type="password" @keyup.enter="login" v-model="password" placeholder="Enter Password" name="password" required>
+            <input type="password" @keyup.enter="login" v-model="password" placeholder="Enter Password" id="password" required>
             <h3>입력한 비밀번호: {{password}}</h3>
             <button @click="login" type="submit">Login</button>
             <label>
@@ -27,7 +27,14 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
+        computed:{
+            ...mapState(
+                {fail: state => state.player.fail,
+                    auth: state => state.player.auth}
+            )
+        },
         data(){
             return{
                 userid: '',
@@ -36,7 +43,8 @@
         },
         methods: {
             login(){
-                alert('로그인 성공')
+                alert(this.userid)
+                this.$store.dispatch('player/login', {playerId: '2000003', backNo: '40'})
             },
             moveToPasswd(){
                 document.getElementById('password').focus()

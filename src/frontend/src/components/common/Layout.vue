@@ -2,9 +2,11 @@
     <div id="wrapper">
         <header>
             <slot name="header"
-                :title="data1"
-                :login="data2"
-                :join="data3"></slot>
+                  :title="title"
+                  :login="login"
+                  :join="join"
+                  :mypage="mypage"
+                  :logout="logout"></slot>
         </header>
         <aside id="sidebar">
             <slot name="sidebar"></slot>
@@ -15,20 +17,25 @@
             </slot>
         </section>
         <footer>
-            <slot name="footer" :footer="data4"></slot>
+            <slot name="footer" :footer="footer"></slot>
         </footer>
     </div>
 </template>
 
 <script>
     export default {
+        name: "Layout",
         data(){
             return {
-                data1: '축구정보 시스템',
-                data2: '로그인',
-                data3: '회원가입',
-                data4: '(사)축구선수협회'
+                title : '축구정보 시스템',
+                login : '로그인',
+                join : '회원가입',
+                footer : '(사)축구선수협회',
+                logout : '로그아웃',
+                mypage : '마이페이지'
             }
+        },
+        methods: {
         }
     }
 </script>
